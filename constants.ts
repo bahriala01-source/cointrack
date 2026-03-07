@@ -1,0 +1,98 @@
+
+import { Transaction, TransactionType, CategoryConfig } from './types';
+
+export const INITIAL_CATEGORIES: CategoryConfig[] = [
+  { name: 'Salary', color: '#10b981', type: TransactionType.INCOME },
+  { name: 'Freelance', color: '#34d399', type: TransactionType.INCOME },
+  { name: 'Groceries', color: '#f59e0b', type: TransactionType.EXPENSE },
+  { name: 'Rent', color: '#ef4444', type: TransactionType.EXPENSE },
+  { name: 'Utilities', color: '#f97316', type: TransactionType.EXPENSE },
+  { name: 'Entertainment', color: '#8b5cf6', type: TransactionType.EXPENSE },
+  { name: 'Transport', color: '#3b82f6', type: TransactionType.EXPENSE },
+  { name: 'Dining', color: '#ec4899', type: TransactionType.EXPENSE },
+  { name: 'Health', color: '#14b8a6', type: TransactionType.EXPENSE },
+  { name: 'Investment', color: '#6366f1', type: TransactionType.EXPENSE },
+];
+
+export const MOCK_TRANSACTIONS: Transaction[] = [
+  {
+    id: '1',
+    title: 'Monthly Salary',
+    amount: 5200,
+    type: TransactionType.INCOME,
+    category: 'Salary',
+    date: '2023-10-01',
+  },
+  {
+    id: '2',
+    title: 'Whole Foods Market',
+    amount: 145.20,
+    type: TransactionType.EXPENSE,
+    category: 'Groceries',
+    date: '2023-10-02',
+  },
+  {
+    id: '3',
+    title: 'Netflix Subscription',
+    amount: 15.99,
+    type: TransactionType.EXPENSE,
+    category: 'Entertainment',
+    date: '2023-10-03',
+  },
+  {
+    id: '4',
+    title: 'Freelance Project: Web Design',
+    amount: 1200,
+    type: TransactionType.INCOME,
+    category: 'Freelance',
+    date: '2023-10-05',
+  },
+  {
+    id: '5',
+    title: 'City Electric Bill',
+    amount: 85.50,
+    type: TransactionType.EXPENSE,
+    category: 'Utilities',
+    date: '2023-10-06',
+  },
+  {
+    id: '6',
+    title: 'Uber Rides',
+    amount: 42.00,
+    type: TransactionType.EXPENSE,
+    category: 'Transport',
+    date: '2023-10-07',
+  },
+  {
+    id: '7',
+    title: 'Sushi Dinner',
+    amount: 68.00,
+    type: TransactionType.EXPENSE,
+    category: 'Dining',
+    date: '2023-10-08',
+  },
+  {
+    id: '8',
+    title: 'Gym Membership',
+    amount: 50.00,
+    type: TransactionType.EXPENSE,
+    category: 'Health',
+    date: '2023-10-09',
+  },
+  {
+    id: '9',
+    title: 'Apartment Rent',
+    amount: 1800,
+    type: TransactionType.EXPENSE,
+    category: 'Rent',
+    date: '2023-10-01',
+  },
+  {
+    id: '10',
+    title: 'Stock Dividend',
+    amount: 32.40,
+    type: TransactionType.INCOME,
+    category: 'Investment',
+    date: '2023-10-10',
+  },
+];

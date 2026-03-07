@@ -1,0 +1,5 @@
+{
+  "name": "CoinTrack",
+  "description": "A modern, responsive fintech dashboard for tracking personal finances with dark mode support and interactive charts.",
+  "requestFramePermissions": []
+}

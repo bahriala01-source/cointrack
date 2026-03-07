@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoinTrack — Smart Finance Tracker</title>
+  <meta name="description"
+    content="Track your income, expenses and budgets with CoinTrack — a modern, beautiful finance management app.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#7C3AED',
+              600: '#6C5CE7',
+              700: '#5b21b6',
+              800: '#4c1d95',
+              900: '#3b0764',
+            },
+            surface: {
+              deep: '#0C0E14',
+              base: '#111320',
+              card: '#1C2033',
+              elevated: '#252A3A',
+            }
+          }
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "phosphor-react": "https://aistudiocdn.com/phosphor-react@^1.4.1"
+  }
+}
+</script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

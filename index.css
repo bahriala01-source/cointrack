@@ -1,0 +1,223 @@
+/* ═══════════════════════════════════════════════════════════
+   CoinTrack — Design System v2.0
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── CSS Variables ─────────────────────────────────────── */
+:root {
+  /* Base palette */
+  --ct-bg-deep: #0C0E14;
+  --ct-bg-base: #111320;
+  --ct-bg-surface: #1C2033;
+  --ct-bg-elevated: #252A3A;
+  --ct-bg-hover: rgba(255,255,255,0.03);
+
+  /* Accent — Purple gradient */
+  --ct-accent: #7C3AED;
+  --ct-accent-light: #A78BFA;
+  --ct-accent-glow: rgba(124, 58, 237, 0.25);
+  --ct-accent-gradient: linear-gradient(135deg, #6C5CE7, #A855F7);
+
+  /* Semantic */
+  --ct-success: #00D68F;
+  --ct-success-muted: rgba(0, 214, 143, 0.12);
+  --ct-danger: #FF6B6B;
+  --ct-danger-muted: rgba(255, 107, 107, 0.12);
+  --ct-warning: #FBBF24;
+
+  /* Text */
+  --ct-text-primary: #F1F5F9;
+  --ct-text-secondary: #8B95A7;
+  --ct-text-muted: #4B5568;
+
+  /* Borders */
+  --ct-border: rgba(255,255,255,0.06);
+  --ct-border-accent: rgba(124, 58, 237, 0.3);
+
+  /* Shadows */
+  --ct-shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --ct-shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --ct-shadow-lg: 0 8px 32px rgba(0,0,0,0.35);
+  --ct-shadow-glow: 0 0 20px rgba(124, 58, 237, 0.15);
+
+  /* Transitions */
+  --ct-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ct-duration: 0.2s;
+
+  /* Radius */
+  --ct-radius-sm: 8px;
+  --ct-radius-md: 12px;
+  --ct-radius-lg: 16px;
+  --ct-radius-xl: 20px;
+  --ct-radius-full: 9999px;
+}
+
+/* ─── Animation Keyframes ───────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(124, 58, 237, 0.3); }
+  50% { box-shadow: 0 0 24px rgba(124, 58, 237, 0.5); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes toast-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(16px) scale(0.95); }
+}
+
+/* ─── Utility Classes ───────────────────────────────────── */
+.animate-fade-in {
+  animation: fadeIn 0.3s var(--ct-ease) both;
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s var(--ct-ease) both;
+}
+.animate-slide-up {
+  animation: slideUp 0.35s var(--ct-ease) both;
+}
+.animate-scale-in {
+  animation: scaleIn 0.25s var(--ct-ease) both;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+
+/* ─── Gradient Utilities ────────────────────────────────── */
+.gradient-accent {
+  background: var(--ct-accent-gradient);
+}
+.gradient-accent-text {
+  background: var(--ct-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--ct-accent-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Card Glass Effect ─────────────────────────────────── */
+.glass-card {
+  background: var(--ct-bg-surface);
+  border: 1px solid var(--ct-border);
+  border-radius: var(--ct-radius-xl);
+  transition: all var(--ct-duration) var(--ct-ease);
+}
+.glass-card:hover {
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: var(--ct-shadow-md);
+}
+
+/* ─── Toast System ──────────────────────────────────────── */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.toast {
+  padding: 14px 20px;
+  border-radius: var(--ct-radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  box-shadow: var(--ct-shadow-lg);
+  animation: toast-in 0.3s var(--ct-ease) both;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 280px;
+}
+.toast.toast-exit {
+  animation: toast-out 0.25s var(--ct-ease) both;
+}
+.toast-success { background: linear-gradient(135deg, #059669, #10b981); }
+.toast-error { background: linear-gradient(135deg, #dc2626, #ef4444); }
+.toast-info { background: linear-gradient(135deg, #6C5CE7, #A855F7); }
+
+/* ─── Skeleton Loading ──────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, var(--ct-bg-surface) 25%, var(--ct-bg-elevated) 50%, var(--ct-bg-surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--ct-radius-sm);
+}
+.skeleton-text { height: 14px; width: 60%; }
+.skeleton-heading { height: 28px; width: 40%; }
+.skeleton-card { height: 140px; width: 100%; border-radius: var(--ct-radius-xl); }
+.skeleton-circle { border-radius: 50%; }
+
+/* ─── Scrollbar Polish ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ct-text-muted);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ct-text-secondary);
+}
+
+/* ─── Focus Styles (Accessibility) ──────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--ct-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Body Defaults ─────────────────────────────────────── */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--ct-bg-deep);
+  color: var(--ct-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
