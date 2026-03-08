@@ -4,9 +4,9 @@ import crypto from 'crypto';
 import { getDb, saveDb } from './db.js';
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors()); // Allow all origins for the portfolio deployment
 app.use(express.json());
 
 let db;

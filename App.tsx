@@ -11,7 +11,7 @@ import AddTransactionModal from './components/AddTransactionModal';
 import LandingPage from './components/LandingPage';
 import { ToastProvider } from './components/Toast';
 
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 interface Goal {
   id: string;
